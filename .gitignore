@@ -1,0 +1,6 @@
+a.out*
+*.txt
+vscode
+.DS_Store
+.vscode
+get_next_line.pdf
