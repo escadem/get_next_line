@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#define BUFFER_SIZE 3
+#define BUFFER_SIZE 1
 
 /// @brief standard string lenthe function
 /// @param s String which length must be calculated
@@ -211,7 +211,7 @@ int	main(void)
 	int		fd;
 	char	*linea;
 
-	fd = open("a.txt", O_RDONLY);
+	fd = open("e.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("Opening file ERROR\n");
