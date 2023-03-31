@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:36 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/03/30 22:40:44 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:13:45 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,3 +108,4 @@ char	*get_next_line(int fd)
 	free (tmp_buffer);
 	return (line);
 }
+

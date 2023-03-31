@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:26 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/03/30 22:42:56 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:13:50 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,3 +86,4 @@ char	*ft_strjoin(char *s1, char *s2)
 		newstr[i] = s2[i - len_s1];
 	return (newstr);
 }
+
