@@ -119,7 +119,6 @@ char	*ft_get_line(char *r_buffer, int *byt_read)
 	int		end_line;
 	int		i;
 
-	// printf("get_line: %s\n", r_buffer);
 	if (*byt_read == -1)
 	{
 		free (r_buffer);
@@ -177,7 +176,7 @@ char	*get_next_line(int fd)
 	int			nl_pos;
 
 	tmp_buffer = ft_initializing(fd, rem_buffer, &nl_pos, &byt_read);
-	rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);
+		rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);
 	if (rem_buffer == NULL)
 	{
 		if (tmp_buffer)
@@ -187,6 +186,11 @@ char	*get_next_line(int fd)
 	while (!nl_pos && byt_read == BUFFER_SIZE)
 	{
 		byt_read = read(fd, tmp_buffer, BUFFER_SIZE);
+		if (byt_read == -1)
+		{
+			free (rem_buffer);
+			return (NULL);
+		}	
 		tmp_buffer[byt_read] = '\0';
 		nl_pos = ft_check_nl(tmp_buffer);
 		rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);

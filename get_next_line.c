@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:36 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/04/01 10:12:57 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/01 14:23:48 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,17 @@ char	*get_next_line(int fd)
 	int			nl_pos;
 
 	tmp_buffer = ft_initializing(fd, rem_buffer, &nl_pos, &byt_read);
-		rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);
+	rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);
 	if (rem_buffer == NULL)
-	{
-		if (tmp_buffer)
-			free (tmp_buffer);
 		return (NULL);
-	}
 	while (!nl_pos && byt_read == BUFFER_SIZE)
 	{
 		byt_read = read(fd, tmp_buffer, BUFFER_SIZE);
+		if (byt_read == -1)
+		{
+			free (rem_buffer);
+			return (NULL);
+		}	
 		tmp_buffer[byt_read] = '\0';
 		nl_pos = ft_check_nl(tmp_buffer);
 		rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);
