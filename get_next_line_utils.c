@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:26 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/04/01 09:39:48 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:13:06 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
-	newstr = (char *)ft_calloc_str(len_s1 + len_s2 + 1);
+	newstr = ft_calloc_str(len_s1 + len_s2 + 1);
 	if (newstr == NULL)
 		return (NULL);
 	i = -1;

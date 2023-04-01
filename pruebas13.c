@@ -5,12 +5,12 @@
 #include <stdint.h>
 #include <string.h>
 
-#define BUFFER_SIZE 42
+#define BUFFER_SIZE 1000000
 
-void	ft_leaks(void)
-{
-	system("leaks -q a.out");
-}
+// void	ft_leaks(void)
+// {
+// 	system("leaks -q a.out");
+// }
 
 int	ft_strlen(const char *s)
 {
@@ -72,7 +72,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
-	newstr = (char *)ft_calloc_str(len_s1 + len_s2 + 1);
+	newstr = ft_calloc_str(len_s1 + len_s2 + 1);
 	if (newstr == NULL)
 		return (NULL);
 	i = -1;
@@ -100,7 +100,7 @@ char	*ft_initializing(int fd, char *rembuffer, int *nl_pos, int *byt_read)
 	*nl_pos = ft_check_nl(rembuffer);
 	if (*nl_pos)
 		return (NULL);
-	str = (char *)ft_calloc_str(BUFFER_SIZE + 1);
+	str = ft_calloc_str(BUFFER_SIZE + 1);
 	if (!str)
 		return (NULL);
 	*byt_read = read(fd, str, BUFFER_SIZE);
@@ -128,7 +128,7 @@ char	*ft_get_line(char *r_buffer, int *byt_read)
 	end_line = ft_check_nl(r_buffer);
 	if (!end_line)
 		return (r_buffer);
-	line = (char *)ft_calloc_str(end_line + 1);
+	line = ft_calloc_str(end_line + 1);
 	if (!line)
 	{
 		free (r_buffer);
@@ -151,7 +151,7 @@ char	*ft_clean_rem(char *rbuffer, int *nl_pos)
 	beg_buff = ft_check_nl(rbuffer);
 	if (!(*nl_pos))
 		return (NULL);
-	tmp = (char *)ft_calloc_str(len_rbuffer - beg_buff + 1);
+	tmp = ft_calloc_str(len_rbuffer - beg_buff + 1);
 	if (!tmp || beg_buff == len_rbuffer)
 	{
 		free (rbuffer);
@@ -177,11 +177,11 @@ char	*get_next_line(int fd)
 	int			nl_pos;
 
 	tmp_buffer = ft_initializing(fd, rem_buffer, &nl_pos, &byt_read);
-	//if (rem_buffer == NULL || !nl_pos)
 		rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);
 	if (rem_buffer == NULL)
 	{
-		free (tmp_buffer);
+		if (tmp_buffer)
+			free (tmp_buffer);
 		return (NULL);
 	}
 	while (!nl_pos && byt_read == BUFFER_SIZE)
@@ -208,9 +208,9 @@ int	main(void)
 	int		fd;
 	char	*linea;
 
-	atexit(ft_leaks);
+	// atexit(ft_leaks);
 
- 	fd = open("a.txt", O_RDONLY);
+ 	fd = open("e.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("Opening file ERROR\n");

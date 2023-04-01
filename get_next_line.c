@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:36 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/04/01 09:38:49 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:12:57 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_initializing(int fd, char *rembuffer, int *nl_pos, int *byt_read)
 	*nl_pos = ft_check_nl(rembuffer);
 	if (*nl_pos)
 		return (NULL);
-	str = (char *)ft_calloc_str(BUFFER_SIZE + 1);
+	str = ft_calloc_str(BUFFER_SIZE + 1);
 	if (!str)
 		return (NULL);
 	*byt_read = read(fd, str, BUFFER_SIZE);
@@ -48,7 +48,7 @@ char	*ft_get_line(char *r_buffer, int *byt_read)
 	end_line = ft_check_nl(r_buffer);
 	if (!end_line)
 		return (r_buffer);
-	line = (char *)ft_calloc_str(end_line + 1);
+	line = ft_calloc_str(end_line + 1);
 	if (!line)
 	{
 		free (r_buffer);
@@ -71,7 +71,7 @@ char	*ft_clean_rem(char *rbuffer, int *nl_pos)
 	beg_buff = ft_check_nl(rbuffer);
 	if (!(*nl_pos))
 		return (NULL);
-	tmp = (char *)ft_calloc_str(len_rbuffer - beg_buff + 1);
+	tmp = ft_calloc_str(len_rbuffer - beg_buff + 1);
 	if (!tmp || beg_buff == len_rbuffer)
 	{
 		free (rbuffer);
@@ -97,11 +97,11 @@ char	*get_next_line(int fd)
 	int			nl_pos;
 
 	tmp_buffer = ft_initializing(fd, rem_buffer, &nl_pos, &byt_read);
-	//if (rem_buffer == NULL || !nl_pos)
 		rem_buffer = ft_strjoin(rem_buffer, tmp_buffer);
 	if (rem_buffer == NULL)
 	{
-		free (tmp_buffer);
+		if (tmp_buffer)
+			free (tmp_buffer);
 		return (NULL);
 	}
 	while (!nl_pos && byt_read == BUFFER_SIZE)

@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:37:34 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/04/01 09:40:58 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/01 09:48:00 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ char	*ft_initializing(int fd, char *rembuffer, int *nl_pos, int *byt_read);
 char	*ft_get_line(char *r_buffer, int *byt_read);
 char	*ft_clean_rem(char *rbuffer, int *nl_pos);
 char	*get_next_line(int fd);
-
 
 #endif
