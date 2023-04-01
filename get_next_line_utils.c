@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:26 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/03/31 23:13:50 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/01 09:39:48 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,22 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_calloc_str(size_t count)
 {
-	void	*p;
+	char	*p;
 	size_t	i;
 
-	if (size && count > SIZE_MAX / size)
+	if (count > SIZE_MAX)
 		return (NULL);
-	p = (void *)malloc(count * size);
+	p = malloc(count);
 	if (p == NULL)
 		return (NULL);
-	i = -1;
-	while (++i < count * size)
-		*(unsigned char *)(p + i) = (unsigned char) 0;
+	i = 0;
+	while (i < count)
+	{
+		p[i] = 0;
+		i++;
+	}
 	return (p);
 }
 
@@ -67,15 +70,9 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (!s1 && !s2)
 		return (NULL);
-	if (!s1)
-	{
-		s1 = (char *)ft_calloc(1, sizeof(char));
-		if (!s1)
-			return (NULL);
-	}
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
-	newstr = (char *)ft_calloc(len_s1 + len_s2 + 1, sizeof(char));
+	newstr = (char *)ft_calloc_str(len_s1 + len_s2 + 1);
 	if (newstr == NULL)
 		return (NULL);
 	i = -1;
@@ -84,6 +81,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = len_s1 - 1;
 	while (++i < len_s1 + len_s2)
 		newstr[i] = s2[i - len_s1];
+	free (s1);
 	return (newstr);
 }
-

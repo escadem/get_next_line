@@ -150,10 +150,7 @@ char	*ft_clean_rem(char *rbuffer, int *nl_pos)
 	len_rbuffer = ft_strlen(rbuffer);
 	beg_buff = ft_check_nl(rbuffer);
 	if (!(*nl_pos))
-	{
-		// free (rbuffer);
 		return (NULL);
-	}
 	tmp = (char *)ft_calloc_str(len_rbuffer - beg_buff + 1);
 	if (!tmp || beg_buff == len_rbuffer)
 	{

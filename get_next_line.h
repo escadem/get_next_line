@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:37:34 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/03/31 23:13:57 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/01 09:40:58 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 // PROTOTYPES DEFINITION get_next_line_utils
 int		ft_strlen(const char *s);
-void	*ft_calloc(size_t count, size_t size);
+char	*ft_calloc_str(size_t count);
 int		ft_check_nl(char *string);
 char	*ft_strjoin(char *s1, char *s2);
 
