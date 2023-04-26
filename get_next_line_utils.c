@@ -6,11 +6,25 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:26 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/04/01 10:13:06 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/26 20:26:05 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_free(char **pointer)
+{
+	free (*pointer);
+	*pointer = NULL;
+	return (*pointer);
+}
+
+char	*ft_free(char *pointer)
+{
+	free (pointer);
+	pointer = NULL;
+	return (pointer);
+}
 
 int	ft_strlen(const char *s)
 {
