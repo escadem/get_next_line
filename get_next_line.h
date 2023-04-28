@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:37:34 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/04/26 19:58:10 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/04/28 16:40:59 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_strlen(const char *s);
 char	*ft_calloc_str(size_t count);
 int		ft_check_nl(char *string);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_free(char **pointer);
+char	*ft_free_str(char *pointer);
 
 // PROTOTYPES DEFINITION get_next_line
 char	*ft_initializing(int fd, char *rembuffer, int *nl_pos, int *byt_read);
