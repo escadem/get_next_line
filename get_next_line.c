@@ -6,7 +6,7 @@
 /*   By: eescat-l <eescat-l@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:37:36 by eescat-l          #+#    #+#             */
-/*   Updated: 2023/04/28 16:39:27 by eescat-l         ###   ########.fr       */
+/*   Updated: 2023/05/03 21:08:57 by eescat-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ char	*ft_initializing(int fd, char *rembuffer, int *nl_pos, int *byt_read)
 {
 	char	*str;
 
-	if (fd < 0 || BUFFER_SIZE < 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
+	// if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) <= 0)
 		return (NULL);
 	*nl_pos = ft_check_nl(rembuffer);
 	if (*nl_pos)
